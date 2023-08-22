@@ -1,15 +1,13 @@
 import openai
 from linkedin_scraper import Person, actions
 from selenium import webdriver
-from flask import Flask,request , render_template,redirect
+from flask import Flask,request , render_template
 import os 
 app = Flask(__name__)
 
 
 memory =  []
 def add_memory(url,person):
-    # d = "{'persson':'{url}','details':'{person}'}".format(persson=url,details= person)
-    # print(dict(d))
     dic = {
         "name": url ,
         "details": person
@@ -44,14 +42,14 @@ def run():
         output = call_ai(already_Store)
         return output
 def call_ai(person):
-    api_key = "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"
+    api_key = os.environ.get('OPENAI_API_KEY')
 
 # Initialize the OpenAI API client
     openai.api_key = api_key
     prompt = f"""You Are A Best Ai Tool who can generate a short paragraph for linkedin About section .
              You have the ability to understand the parameter according to a list or python generated output . 
              this output have very short details on about his name ,college , Experience and his skills .
-             so being a smart reader you have to understand all parameters and generate a summary of  on his given details and make sure the output format  is like a person expressing about himself or give a interview and interviewer asking about yourself.
+             so being a smart reader you have to understand all parameters and generate a summary of  on his given details and make sure the output format  is like a person expressing about himself or give a interview and interviewer asking tell me about yourself.
              details : {person}
     """
 
