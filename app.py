@@ -44,7 +44,7 @@ def run():
         output = call_ai(already_Store)
         return output
 def call_ai(person):
-    api_key = "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"
+    api_key = "sk-D"
 
 # Initialize the OpenAI API client
     openai.api_key = api_key
