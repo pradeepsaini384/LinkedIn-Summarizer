@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="static/index.css">
 </head>
+
 <body>
-    Welcome to ai generte response 
+
+    <h1>The AI Powered Summarizer</h1>
+    <h2> for <h2 id="Highlight">LinkedIn</h2>
+    </h2>
+
+    <p class="typing-erase">A AI Generated Self Intro for linkedin About Section.</p>
     <form action="/run" method="post">
-        <input type="text" name="url" id="url">
-        <button type="submit">Submit</button>
+        <input type="text" name="url" id="url" placeholder="// Enter Your LinkedIn Url">
+
+        <button class="btn"><span>Generate</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62"
+                width="62"></button>
     </form>
+    <div id="Output">
+        <div class="output">{{output}}</div>
+    </div>
 </body>
+
 </html>

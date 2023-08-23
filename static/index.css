@@ -1,0 +1,227 @@
+body{
+    background: #222;
+    font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+    ;
+}
+h1{
+    margin-top: 20vh;
+    padding-left: 20vw;
+    font-size: 5vw;
+    color : white;
+    margin-bottom: 0;
+}
+h2{
+    padding-left: 40vw;
+    font-size: 3.5vw;
+    color : #09b6a2;
+    margin-top: 0;
+  
+    display: flex;
+    position: absolute;
+}
+#Highlight{
+    position: relative;
+    padding-left: 46vw;
+    font-size: 3.5vw;
+    color : #09b6a2 ;
+    margin-top: 0;
+    filter: drop-shadow(0 0 0.75rem #2d1c30 );
+}
+form{
+    padding-left: 25vw;
+}
+input[type=text] {
+    width: 50vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 50px;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    background-color: transparent;
+    color: #ffd79c;
+  }
+input[type=text]:focus {
+    border: 3px solid #555;
+    background-color: transparent;
+  }
+
+
+@-webkit-keyframes extend {
+    0% {
+       
+        border-radius: 100px;
+        } 10% {
+        
+        background: #fff;
+        margin-left: - 5px;
+        margin-top: - 5px;
+        } 20% {
+    
+        background: #09b6a2;
+        margin-left: 0px;
+        margin-top: 0px;
+        } 100% {
+      
+        border-radius: 100px;
+        margin-left: 190px;
+        background: #09b6a2;
+        }
+    }
+@keyframes extend {
+    0% {
+     
+        border-radius: 100px;
+        } 10% {
+        
+        background: #fff;
+        margin-left: - 5px;
+        margin-top: - 5px;
+        } 20% {
+       
+        background: #09b6a2;
+        margin-left: 0px;
+        margin-top: 0px;
+        } 100% {
+        
+        border-radius: 100px;
+        
+        background: #09b6a2;
+        }
+    }
+
+@-webkit-keyframes disappear {
+    0% {
+        opacity: 1;
+        } 20% {
+        color: #fff;
+        } 100% {
+        opacity: 0;
+        }
+    }
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        } 20% {
+        color: #fff;
+        } 100% {
+        opacity: 0;
+        }
+    }
+/* @-webkit-keyframes {
+    
+} */
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0;
+        } 70% {
+        opacity: 0;
+        } 100% {
+        opacity: 1;
+        }
+    }
+@keyframes appear {
+    0% {
+        opacity: 0;
+        } 70% {
+        opacity: 0;
+        } 100% {
+        opacity: 1;
+        }
+    }
+input, button, submit {
+    border: none
+    }
+
+
+button {
+    border-width: 1px;
+    border-radius: 100px;
+    position: absolute;
+    border: 5px solid #09b6a2;
+    background-color: #09b6a2;
+    margin-left: -107px;
+    margin-top: 13px;
+    color: white;
+    }
+
+button > span {
+    font-size: 19px;
+    color: white
+    }
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0
+    }
+
+button:focus {
+    /*animation*/
+    -webkit-animation: extend 1s ease-in-out;
+    -ms-animation: extend 1s ease-in-out;
+    animation: extend 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards
+    }
+
+button:focus > span {
+    /*animation*/
+    -webkit-animation: disappear 1s ease-in-out;
+    -ms-animation: disappear 1s ease-in-out;
+    animation: disappear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards
+    }
+
+button:focus > img {
+    /*animation*/
+    -webkit-animation: appear 1s ease-in-out;
+    -ms-animation: appear 1s ease-in-out;
+    animation: appear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards
+    }
+p {     
+        margin-top: 50px;
+        margin-left: 28vw;
+        color: white;
+        font-size:2vw;
+        font-weight: 100;
+        width: 0;
+        max-width: max-content;
+        overflow: hidden; 
+        border-right: .05em solid white; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+         /* Gives that scrolling effect as the typing happens */
+      }
+      
+.typing-erase {
+        animation: 
+          4s typing-erase 4s steps(50, end) infinite,
+          blink-caret .5s step-end infinite;
+      }
+      
+      /* The type and erase effect */
+      @keyframes typing-erase {
+        0% { width: 0 }
+        80% { width: 100% }
+        90%, 100% { width: 0 }
+      }
+      
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: gray }
+      }
