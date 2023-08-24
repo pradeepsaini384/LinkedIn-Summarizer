@@ -21,9 +21,19 @@
         <button class="btn"><span>Generate</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62"
                 width="62"></button>
     </form>
+    {% if output %}
+    {% for i in range(output|length)  %}
+    {% if i==0 %}
     <div id="Output">
-        <div class="output">{{output}}</div>
+        <span class="type" style="--n:1000">{{output[i]}}</span>
     </div>
+    {% else %}
+    <div id="Outpuqt">
+        <span class="typeq" style="--n:1000">{{i}}{{output[i]}}</span>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
 </body>
 
 </html>
