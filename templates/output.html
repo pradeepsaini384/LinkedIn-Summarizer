@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/index.css">
+</head>
+
+<body>
+
+    <h1>The AI Powered Summarizer</h1>
+    <h2> for <h2 id="Highlight">LinkedIn</h2>
+    </h2>
+
+    <p class="typing-erase">A AI Generated Self Intro for linkedin About Section.</p>
+    <form action="/output" method="post">
+        <input type="text" name="url" id="url" value="{{url}}" placeholder="// Enter Your LinkedIn Url">
+        <br>
+        <button class="btn1" style="margin-left: 12vw;"><span>Generate more</span></button>
+
+    </form>
+    <button class="btn1" style="margin-left: 50vw;"><span><a href="#Output">Checkout variation</a></button>
+    {% if output %}
+    {% for i in range(output|length)  %}
+    {% if i==0 %}
+    <div id="Output">
+        <span class="type" id ="outputtext{{i}}"style="--n:1000"><b>{{i+1}}. </b> {{output[i]}}</span>
+        <button class="copyText" onclick="copyText({{i}})">Copy</button>
+    </div>
+    {% else %}
+    <div id="Output">
+        <span class="typeq" id="outputtext{{i}}" style="--n:1000"><b>{{i+1}}. </b> {{output[i]}}</span>
+        <button class="copyText" onclick="copyText({{i}})">Copy</button>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+</body>
+<script>
+    function copyText(i) {
+  
+        /* Copy text into clipboard */
+        var Text = document.getElementById("outputtext"+i).textContent;
+        navigator.clipboard.writeText(Text);
+    }
+</script>
+</html>

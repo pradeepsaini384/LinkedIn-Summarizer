@@ -54,8 +54,8 @@ def save_output_in_memory(output,name):
 @app.route('/')
 def home():
     return render_template('index.html')
-@app.route('/run',methods=['GET','POST']) 
-def run():
+@app.route('/output',methods=['GET','POST']) 
+def output():
     url = request.form.get('url')
     already_Store = check_memory(url)
     if already_Store is None:
@@ -74,7 +74,7 @@ def call_ai(person,url):
     # api_key = os.environ.get('OPENAI_API_KEY')
 
 # Initialize the OpenAI API client
-    openai.api_key = ""
+    openai.api_key = "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"
     prompt = f"""You Are A Best Ai Tool who can generate a short paragraph for linkedin About section .
              You have the ability to understand the parameter according to a list or python generated output . 
              this output have very short details on about his name ,college , Experience and his skills .
@@ -94,7 +94,7 @@ def call_ai(person,url):
     # answer = response.choices[0].text.strip()
     answer = ''' I am Pradeep Saini, a seasoned software developer with experience ranging from remote internships with Zenop, working as frontend developer, to Masters in Computer Application focusing on Artificial Intelligence from Sunstone. My skillset also include expertise in Prompt Engineering, Artificial Intelligence (AI), FastAPI, OpenAi, Large Language Models (LLM) and Multi-agent Systems. I had also successfully cleared my Bachelors of Computer Applications from Maharishi Dayanand Saraswati University, Ajmer with a grade of 76.18%. I have a massive passion for programming and am always exploring the frontiers of the ever-changing Technology-scape.'''
     data = save_output_in_memory(answer,url)
-    return render_template('index.html',output= data)
+    return render_template('output.html',url= url, output= data)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -136,7 +136,8 @@ input, button, submit {
     }
 
 
-button {
+.btn {
+
     border-width: 1px;
     border-radius: 100px;
     position: absolute;
@@ -146,8 +147,20 @@ button {
     margin-top: 13px;
     color: white;
     }
+.btn1 {
 
-button > span {
+    border-width: 1px;
+    border-radius: 100px;
+    position: absolute;
+    border: 5px solid #09b6a2;
+    background-color: #09b6a2;
+    margin-left: -107px;
+    margin-top: 13px;
+    color: white;
+    cursor: pointer;
+    }
+
+.btn > span {
     font-size: 19px;
     color: white
     }
@@ -164,17 +177,18 @@ img {
     opacity: 0
     }
 
-button:focus {
+.btn:focus {
     /*animation*/
     -webkit-animation: extend 1s ease-in-out;
     -ms-animation: extend 1s ease-in-out;
     animation: extend 1s ease-in-out;
     -webkit-animation-fill-mode: forwards;
     /* Chrome, Safari, Opera */
-    animation-fill-mode: forwards
+    animation-fill-mode: forwards;
+   
     }
 
-button:focus > span {
+.btn:focus > span {
     /*animation*/
     -webkit-animation: disappear 1s ease-in-out;
     -ms-animation: disappear 1s ease-in-out;
@@ -184,7 +198,7 @@ button:focus > span {
     animation-fill-mode: forwards
     }
 
-button:focus > img {
+.btn:focus > img {
     /*animation*/
     -webkit-animation: appear 1s ease-in-out;
     -ms-animation: appear 1s ease-in-out;
@@ -230,8 +244,8 @@ p {
       .type {
         color:#0000;
         background:
-          linear-gradient(-90deg,#00DFFC 5px,#faf2f200 0) 10px 0,
-          linear-gradient(#00DFFC 0 0) 0 0;
+          linear-gradient(-90deg,  #09b6a2 5px,#faf2f200 0) 10px 0,
+          linear-gradient(black 0 0) 0 0;
         background-size:calc(var(--n)*1ch) 500%;
         -webkit-background-clip:padding-box,text;
         background-clip:padding-box,text;
@@ -252,4 +266,17 @@ p {
     margin-top: 10vh;
     margin-left: 10vw;
     margin-right: 10vw;
+    background-color: white;
+    padding: 2vw;
+    border-radius: 10px;
+    border: #09b6a2;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.copyText{
+    cursor: pointer;
+    
 }
