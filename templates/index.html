@@ -9,7 +9,9 @@
 </head>
 
 <body>
-
+    <div class="loader">
+    
+    </div>
     <h1>The AI Powered Summarizer</h1>
     <h2> for <h2 id="Highlight">LinkedIn</h2>
     </h2>
@@ -22,5 +24,13 @@
                 width="62"></button>
     </form>
 </body>
-
+<script>window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+  
+    loader.classList.add("loader--hidden");
+  
+    loader.addEventListener("transitionend", () => {
+      document.body.removeChild(loader);
+    });
+  });</script>
 </html>

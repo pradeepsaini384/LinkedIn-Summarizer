@@ -28,6 +28,7 @@ h2{
     filter: drop-shadow(0 0 0.75rem #2d1c30 );
 }
 form{
+    padding-top: 18vh;
     padding-left: 25vw;
 }
 input[type=text] {
@@ -225,6 +226,7 @@ p {
         animation: 
           4s typing-erase 4s steps(50, end) infinite,
           blink-caret .5s step-end infinite;
+          animation-delay: 1s;
       }
       
       /* The type and erase effect */
@@ -278,5 +280,53 @@ a{
 
 .copyText{
     cursor: pointer;
+    margin-top: 15px;
+    float: right;
+    border-width: 1px;
+    border-radius: 100px;
+
+    border: 5px solid #09b6a2;
+    background-color: #09b6a2;
     
+    color: white;
+
 }
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333333;
+    background-color: white;
+    transition: opacity 0.75s, visibility 0.75s;
+  }
+  
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .loader::after {
+    content: "Wait";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: #009578;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+  }
+  
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  

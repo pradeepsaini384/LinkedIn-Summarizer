@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="static/index.css">
+    <link rel="js" href="static/index.js">
 </head>
 
 <body>
-
+    <div class="loader"></div>
     <h1>The AI Powered Summarizer</h1>
     <h2> for <h2 id="Highlight">LinkedIn</h2>
     </h2>
@@ -25,7 +26,8 @@
     {% if output %}
     {% for i in range(output|length)  %}
     {% if i==0 %}
-    <div id="Output">
+
+    <div class="Output" id="Output">
         <span class="type" id ="outputtext{{i}}"style="--n:1000"><b>{{i+1}}. </b> {{output[i]}}</span>
         <button class="copyText" onclick="copyText({{i}})">Copy</button>
     </div>
@@ -37,13 +39,30 @@
     {% endif %}
     {% endfor %}
     {% endif %}
-</body>
+
 <script>
-    function copyText(i) {
+    window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader--hidden");
+
   
-        /* Copy text into clipboard */
+});
+
+    function Scroll_down(){
+    $('html, body').animate({
+                        Scroll_down: $('#Output').offset().top
+                    }, 10); 
+};
+
+
+    function copyText(i) {
         var Text = document.getElementById("outputtext"+i).textContent;
         navigator.clipboard.writeText(Text);
-    }
+    };
+    
+            Scroll_down();
+     
 </script>
+</body>
 </html>
