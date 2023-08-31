@@ -71,10 +71,10 @@ def output():
         output = call_ai(already_Store,url)
         return output
 def call_ai(person,url):
-    # api_key = os.environ.get('OPENAI_API_KEY')
+    api_key = os.environ.get('OPENAI_API_KEY')
 
 # Initialize the OpenAI API client
-    openai.api_key = "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"
+    # openai.api_key = "sk-"
     prompt = f"""You Are A Best Ai Tool who can generate a short paragraph for linkedin About section .
              You have the ability to understand the parameter according to a list or python generated output . 
              this output have very short details on about his name ,college , Experience and his skills .
@@ -83,16 +83,16 @@ def call_ai(person,url):
     """
 
     # Generate a response using the OpenAI GPT-3.5 Turbo model
-    # response = openai.Completion.create(
-    #     engine="text-davinci-003",  # GPT-3.5 Turbo engine
-    #     prompt=prompt,
-    #     max_tokens=500,  # Adjust the length of the generated response
-    #     stop=None,  # You can specify a stop word to end the response if needed
-    # )
+    response = openai.Completion.create(
+        engine="text-davinci-003",  # GPT-3.5 Turbo engine
+        prompt=prompt,
+        max_tokens=500,  # Adjust the length of the generated response
+        stop=None,  # You can specify a stop word to end the response if needed
+    )
 
     # Extract and print the generated answer
-    # answer = response.choices[0].text.strip()
-    answer = ''' I am Pradeep Saini, a seasoned software developer with experience ranging from remote internships with Zenop, working as frontend developer, to Masters in Computer Application focusing on Artificial Intelligence from Sunstone. My skillset also include expertise in Prompt Engineering, Artificial Intelligence (AI), FastAPI, OpenAi, Large Language Models (LLM) and Multi-agent Systems. I had also successfully cleared my Bachelors of Computer Applications from Maharishi Dayanand Saraswati University, Ajmer with a grade of 76.18%. I have a massive passion for programming and am always exploring the frontiers of the ever-changing Technology-scape.'''
+    answer = response.choices[0].text.strip()
+    # answer = ''' I am Pradeep Saini, a seasoned software developer with experience ranging from remote internships with Zenop, working as frontend developer, to Masters in Computer Application focusing on Artificial Intelligence from Sunstone. My skillset also include expertise in Prompt Engineering, Artificial Intelligence (AI), FastAPI, OpenAi, Large Language Models (LLM) and Multi-agent Systems. I had also successfully cleared my Bachelors of Computer Applications from Maharishi Dayanand Saraswati University, Ajmer with a grade of 76.18%. I have a massive passion for programming and am always exploring the frontiers of the ever-changing Technology-scape.'''
     data = save_output_in_memory(answer,url)
     return render_template('output.html',url= url, output= data)
 
