@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="static/index.css">
-    <link rel="js" href="static/index.js">
 </head>
 
 <body>
-    <div class="loader"></div>
     <h1>The AI Powered Summarizer</h1>
     <h2> for <h2 id="Highlight">LinkedIn</h2>
     </h2>
@@ -19,10 +17,10 @@
     <form action="/output" method="post">
         <input type="text" name="url" id="url" value="{{url}}" placeholder="// Enter Your LinkedIn Url">
         <br>
-        <button class="btn1" style="margin-left: 12vw;"><span>Generate more</span></button>
+        <button class="btn1"><span>Generate more</span></button>
 
     </form>
-    <button class="btn1" style="margin-left: 50vw;"><span><a href="#Output">Checkout variation</a></button>
+    <button class="btn1" id="btn1" style="margin-left: 50vw;"><span><a href="#Output">Checkout variation</a></button>
     {% if output %}
     {% for i in range(output|length)  %}
     {% if i==0 %}
@@ -41,27 +39,19 @@
     {% endif %}
 
 <script>
-    window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader");
 
-  loader.classList.add("loader--hidden");
-
-  
-});
-
-    function Scroll_down(){
-    $('html, body').animate({
-                        Scroll_down: $('#Output').offset().top
-                    }, 10); 
-};
+        // Use JavaScript to scroll to the div when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            var scrollToDiv = document.getElementById("btn1");
+            scrollToDiv.scrollIntoView();
+        });
+   
 
 
     function copyText(i) {
         var Text = document.getElementById("outputtext"+i).textContent;
         navigator.clipboard.writeText(Text);
     };
-    
-            Scroll_down();
      
 </script>
 </body>
