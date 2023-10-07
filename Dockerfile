@@ -1,18 +1,10 @@
-FROM python:3.10.0-slim
+FROM python:3.8-slim-buster
 
-# install needed packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    libcairo2-dev
+WORKDIR /python-docker
 
-# clean up
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-WORKDIR /app
+COPY . .
 
-COPY requirements.txt ./
-
-RUN pip install -r requirements.txt
-
-COPY .. 
-CMD python app.py
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
