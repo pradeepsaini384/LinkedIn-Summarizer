@@ -1,11 +1,27 @@
 import openai
 from linkedin_scraper import Person, actions
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
 from flask import Flask,request , render_template , redirect, url_for
 import os 
 import json
 app = Flask(__name__)
+def createDriver() -> webdriver.Chrome:
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    
+    prefs = {"profile.managed_default_content_settings.images":2}
+    chrome_options.headless = True
 
+
+    chrome_options.add_experimental_option("prefs", prefs)
+    myDriver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+
+    return myDriver
 file_name = "data.json"
 def load_from_json(file_name):
     try:
@@ -69,7 +85,7 @@ def output():
     if already_Store is None:
         email = os.environ.get('email')
         password = os.environ.get('password')
-        driver = webdriver.Chrome()
+        driver= createDriver()
         actions.login(driver, email, password) # if email and password isnt given, it'll prompt in terminal
         person = str(Person(f"{url}", driver=driver))
         save_new_user_in_json(url,person)
